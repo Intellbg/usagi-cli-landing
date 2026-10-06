@@ -3,12 +3,61 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="USAGI CLI is a software and data engineering company focused on custom development, data pipelines, automation and dashboards." />
-  <title>USAGI CLI — Software & Data Engineering</title>
+  <title>USAGI CLI — Custom Software, Data Engineering & Dashboards</title>
+  <meta name="description" content="USAGI CLI builds custom software, automated data pipelines and Power BI dashboards as one reliable system. Bilingual team (English & Spanish)." />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#07070a" />
+  <link rel="canonical" href="https://usagicli.com/" />
+  <link rel="alternate" hreflang="en" href="https://usagicli.com/" />
+  <link rel="alternate" hreflang="es" href="https://usagicli.com/es/" />
+  <link rel="alternate" hreflang="x-default" href="https://usagicli.com/" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="USAGI CLI" />
+  <meta property="og:url" content="https://usagicli.com/" />
+  <meta property="og:title" content="USAGI CLI — Custom Software, Data Engineering & Dashboards" />
+  <meta property="og:description" content="Custom applications, automated data flows and dashboards—built as one reliable system." />
+  <meta property="og:image" content="https://usagicli.com/assets/img/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="USAGI CLI — We build software and data systems that move your business." />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="es_EC" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="USAGI CLI — Custom Software, Data Engineering & Dashboards" />
+  <meta name="twitter:description" content="Custom applications, automated data flows and dashboards—built as one reliable system." />
+  <meta name="twitter:image" content="https://usagicli.com/assets/img/og-image.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "USAGI CLI",
+    "url": "https://usagicli.com/",
+    "logo": "https://usagicli.com/assets/icons/icon-192.png",
+    "image": "https://usagicli.com/assets/img/og-image.png",
+    "description": "Custom software development, data engineering and dashboards & BI.",
+    "email": "sales@usagicli.com",
+    "telephone": "+593961440098",
+    "knowsLanguage": ["en", "es"],
+    "knowsAbout": ["Custom software development", "Data engineering", "ETL pipelines", "Process automation", "Power BI dashboards", "Business intelligence"],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "email": "sales@usagicli.com",
+      "telephone": "+593961440098",
+      "availableLanguage": ["English", "Spanish"]
+    }
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
   <div class="bg-grid"></div>
@@ -18,7 +67,7 @@
     <div class="container nav-row">
       <a href="#top" class="brand" aria-label="USAGI CLI home">
         <span class="brand-badge">
-          <img src="logo.png" alt="USAGI CLI logo" class="brand-logo" />
+          <img src="assets/img/logo.png" alt="USAGI CLI logo" class="brand-logo" />
         </span>
         <span class="brand-text">
           <strong>USAGI CLI</strong>
@@ -26,14 +75,14 @@
         </span>
       </a>
 
-      <nav class="main-nav" aria-label="Main navigation">
+      <nav class="main-nav" aria-label="Main navigation" data-i18n-label="a11y.nav">
         <a href="#services" data-i18n="nav.services">Services</a>
         <a href="#process" data-i18n="nav.process">Process</a>
         <a href="#contact" data-i18n="nav.contact">Contact</a>
       </nav>
 
       <div class="nav-actions">
-        <button class="lang-switch" id="langSwitch" aria-label="Switch language">
+        <button class="lang-switch" id="langSwitch" aria-label="Switch language" data-i18n-label="a11y.lang">
           <span data-lang="en">EN</span>
           <span class="slash">/</span>
           <span data-lang="es">ES</span>
@@ -60,9 +109,9 @@
             <a href="#contact" class="button ghost" data-i18n="hero.cta2">Get in touch</a>
           </div>
 
-          <div class="hero-chips" aria-label="Capabilities">
+          <div class="hero-chips" aria-label="Capabilities" data-i18n-label="a11y.chips">
             <span>Software</span>
-            <span>Data</span>
+            <span data-i18n="chips.data">Data</span>
             <span>BI</span>
             <span>EN / ES</span>
           </div>
@@ -121,7 +170,7 @@
               </div>
               <div class="signal-card">
                 <span data-i18n="panel.metric2.label">Data quality</span>
-                <strong>Clean</strong>
+                <strong data-i18n="panel.metric2.value">Clean</strong>
                 <small data-i18n="panel.metric2.text">Validation-first</small>
                 <div class="quality-bar" aria-hidden="true"><i></i><b>✓</b></div>
               </div>
@@ -366,7 +415,7 @@
     <div class="container footer-row">
       <a href="#top" class="brand footer-brand">
         <span class="brand-badge small">
-          <img src="logo.png" alt="USAGI CLI logo" class="brand-logo" />
+          <img src="assets/img/logo.png" alt="USAGI CLI logo" class="brand-logo" />
         </span>
         <span class="brand-text">
           <strong>USAGI CLI</strong>
@@ -380,10 +429,10 @@
     </div>
   </footer>
 
-  <a class="wa-fab whatsapp-dynamic" href="https://wa.me/593961440098" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+  <a class="wa-fab whatsapp-dynamic" href="https://wa.me/593961440098" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" data-i18n-label="a11y.whatsapp">
     <span class="wa-fab-icon"><svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.5 0 .2 5.3.2 11.9c0 2.1.6 4.2 1.6 6L0 24l6.3-1.7c1.8 1 3.8 1.5 5.8 1.5 6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.2-3.5-8.4Zm-8.4 18.3c-1.8 0-3.6-.5-5.1-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 22 11.9a9.9 9.9 0 0 1-9.9 9.9Zm5.4-7.4c-.3-.1-1.7-.8-2-1-.3-.1-.5-.1-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-1.8-.9-3-1.6-4.2-3.7-.3-.5.3-.5.9-1.6.1-.2.1-.4 0-.6l-.9-2.2c-.2-.5-.5-.4-.7-.4h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.3 1.4 3.5c.2.2 2.4 3.7 5.9 5.2 2.2 1 3.1 1 4.2.8.7-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.4-.2-.7-.3Z"/></svg></span>
   </a>
 
-  <script src="script.js"></script>
+  <script src="assets/js/script.js"></script>
 </body>
 </html>

@@ -58,7 +58,7 @@ const copy = {
     "about.tag1":"Maintainable","about.tag2":"Direct communication","about.tag3":"Business focused","about.tag4":"EN / ES",
     "contact.kicker":"Contact","contact.title":"Have a project in mind?","contact.text":"Tell us what you need to solve. Tap the WhatsApp button or send us an email.",
     "contact.whatsappAction":"WhatsApp",
-    "contact.emailLabel":"Write to us","contact.emailAction":"Send an email","contact.copy":"Copy address","contact.copied":"Copied!","contact.phoneLabel":"Call us","contact.phoneAction":"Call now","contact.copyPhone":"Copy number",
+    "contact.emailLabel":"Write to us","contact.emailAction":"Send an email","contact.copy":"Copy address","contact.copied":"Copied!","contact.phoneLabel":"Call us","chips.data":"Data","panel.metric2.value":"Clean","a11y.lang":"Switch language","a11y.nav":"Main navigation","a11y.chips":"Capabilities","a11y.whatsapp":"Chat on WhatsApp","contact.phoneAction":"Call now","contact.copyPhone":"Copy number",
     "contact.briefLabel":"To get started, tell us","contact.brief1":"What you need to solve","contact.brief2":"The systems and data involved","contact.brief3":"Your timeline and priorities",
     "contact.langLabel":"Languages","contact.focusLabel":"We help with","contact.focus":"Software · Data · BI",
     "footer.tag":"Software & Data Engineering"
@@ -122,7 +122,7 @@ const copy = {
     "about.tag1":"Mantenible","about.tag2":"Comunicación directa","about.tag3":"Enfoque de negocio","about.tag4":"EN / ES",
     "contact.kicker":"Contacto","contact.title":"¿Tienes un proyecto en mente?","contact.text":"Cuéntanos qué necesitas resolver. Toca el botón de WhatsApp o escríbenos un correo.",
     "contact.whatsappAction":"WhatsApp",
-    "contact.emailLabel":"Escríbenos","contact.emailAction":"Enviar correo","contact.copy":"Copiar correo","contact.copied":"¡Copiado!","contact.phoneLabel":"Llámanos","contact.phoneAction":"Llamar","contact.copyPhone":"Copiar número",
+    "contact.emailLabel":"Escríbenos","contact.emailAction":"Enviar correo","contact.copy":"Copiar correo","contact.copied":"¡Copiado!","contact.phoneLabel":"Llámanos","chips.data":"Datos","panel.metric2.value":"Limpios","a11y.lang":"Cambiar idioma","a11y.nav":"Navegación principal","a11y.chips":"Capacidades","a11y.whatsapp":"Escríbenos por WhatsApp","contact.phoneAction":"Llamar","contact.copyPhone":"Copiar número",
     "contact.briefLabel":"Para empezar, cuéntanos","contact.brief1":"Qué necesitas resolver","contact.brief2":"Los sistemas y datos involucrados","contact.brief3":"Tus plazos y prioridades",
     "contact.langLabel":"Idiomas","contact.focusLabel":"Te ayudamos con","contact.focus":"Software · Datos · BI",
     "footer.tag":"Software e Ingeniería de Datos"
@@ -134,8 +134,53 @@ const whatsappMessages = {
   es: "Hola USAGI CLI, quisiera conversar sobre un proyecto de software/datos."
 };
 
-let currentLang = localStorage.getItem("usagi-lang")
-  || (navigator.language.toLowerCase().startsWith("es") ? "es" : "en");
+// Google Analytics 4. Paste the Measurement ID (Admin → Data streams) to switch it on.
+const GA_ID = "G-T7B3BV146Z";
+const gaEnabled = /^G-[A-Z0-9]+$/.test(GA_ID) && GA_ID !== "G-XXXXXXXXXX";
+window.dataLayer = window.dataLayer || [];
+function gtag(){ dataLayer.push(arguments); }
+if(gaEnabled){
+  const tag = document.createElement("script");
+  tag.async = true;
+  tag.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+  document.head.appendChild(tag);
+  gtag("js", new Date());
+  gtag("config", GA_ID);
+}
+const track = (name, params = {}) => { if(gaEnabled) gtag("event", name, params); };
+
+// Track the actions that matter: contact clicks, copies, CTAs, language.
+document.addEventListener("click", e => {
+  const el = e.target.closest("a, button");
+  if(!el) return;
+  const href = el.getAttribute("href") || "";
+  if(href.includes("wa.me")) track("contact_click", { method:"whatsapp" });
+  else if(href.startsWith("mailto:")) track("contact_click", { method:"email" });
+  else if(href.startsWith("tel:")) track("contact_click", { method:"phone" });
+  else if(el.classList.contains("contact-copy-btn")) track("contact_copy", { value_type: el.dataset.copy.includes("@") ? "email" : "phone" });
+  else if(el.id === "langSwitch") track("language_switch", { to: currentLang === "en" ? "es" : "en" });
+  else if(href.startsWith("#") && el.closest(".hero-actions")) track("hero_cta", { target: href.slice(1) });
+});
+
+// Each language is its own page (/ and /es/); the page's <html lang> decides.
+let currentLang = document.documentElement.lang === "es" ? "es" : "en";
+const storage = {
+  get(){ try{ return localStorage.getItem("usagi-lang"); }catch{ return null; } },
+  set(v){ try{ localStorage.setItem("usagi-lang", v); }catch{} }
+};
+const otherLangUrl = () => {
+  const base = currentLang === "en" ? "es/" : "../";
+  const file = location.protocol === "file:" ? "index.html" : "";
+  return base + file + location.hash;
+};
+
+// First visit from a Spanish browser on the English page → Spanish page.
+if(currentLang === "en" && !storage.get()
+   && navigator.language.toLowerCase().startsWith("es")
+   && !/bot|crawl|spider|slurp|facebookexternalhit|whatsapp/i.test(navigator.userAgent)){
+  storage.set("es");
+  location.replace(otherLangUrl());
+}
 
 function updateWhatsAppLinks(lang){
   const message = encodeURIComponent(whatsappMessages[lang]);
@@ -148,7 +193,6 @@ function updateWhatsAppLinks(lang){
 function applyLanguage(lang){
   currentLang = lang;
   document.documentElement.lang = lang;
-  localStorage.setItem("usagi-lang", lang);
 
   document.querySelectorAll("[data-i18n]").forEach(el => {
     const value = copy[lang][el.dataset.i18n];
@@ -162,7 +206,7 @@ function applyLanguage(lang){
 
   document.querySelectorAll("[data-i18n-label]").forEach(el => {
     const value = copy[lang][el.dataset.i18nLabel];
-    if(value !== undefined){ el.setAttribute("aria-label", value); el.title = value; }
+    if(value !== undefined){ el.setAttribute("aria-label", value); if(el.hasAttribute("title")) el.title = value; }
   });
 
   document.querySelectorAll("[data-lang]").forEach(el => {
@@ -173,7 +217,8 @@ function applyLanguage(lang){
 }
 
 document.getElementById("langSwitch")?.addEventListener("click", () => {
-  applyLanguage(currentLang === "en" ? "es" : "en");
+  storage.set(currentLang === "en" ? "es" : "en");
+  location.href = otherLangUrl();
 });
 
 document.getElementById("year").textContent = new Date().getFullYear();

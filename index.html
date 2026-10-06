@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="USAGI CLI is a software and data engineering company focused on custom development, data pipelines, automation and dashboards." />
+  <title>USAGI CLI — Software & Data Engineering</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <header class="site-header">
+    <div class="container nav-row">
+      <a href="#top" class="brand" aria-label="USAGI CLI home">
+        <span class="brand-badge">
+          <img src="logo.png" alt="USAGI CLI logo" class="brand-logo" />
+        </span>
+        <span class="brand-text">
+          <strong>USAGI CLI</strong>
+          <small data-i18n="brand.tag">Software & Data Engineering</small>
+        </span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#services" data-i18n="nav.services">Services</a>
+        <a href="#process" data-i18n="nav.process">Process</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="lang-switch" id="langSwitch" aria-label="Switch language">
+          <span data-lang="en">EN</span>
+          <span class="slash">/</span>
+          <span data-lang="es">ES</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero section-first">
+      <canvas class="hero-bits" id="heroBits" aria-hidden="true"></canvas>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">
+            <span class="eyebrow-ping"></span>
+            <span data-i18n="hero.eyebrow">Custom software · Data engineering · Dashboards</span>
+          </div>
+
+          <h1 data-i18n-html="hero.title">We build <span>software systems</span> and <span>data flows</span> that move businesses forward.</h1>
+          <p class="hero-lead" data-i18n="hero.lead">USAGI CLI helps companies design, build and operate custom applications, data pipelines, process automation and dashboards with practical engineering and direct communication.</p>
+
+          <div class="hero-actions">
+            <a href="#services" class="button primary" data-i18n="hero.cta1">Explore services</a>
+            <a href="#contact" class="button ghost" data-i18n="hero.cta2">Get in touch</a>
+          </div>
+
+          <div class="hero-chips" aria-label="Capabilities">
+            <span>Software</span>
+            <span>Data</span>
+            <span>BI</span>
+            <span>EN / ES</span>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-orb orb-a"></div>
+          <div class="hero-orb orb-b"></div>
+
+          <div class="hero-stage">
+          <div class="hero-panel glass tilt-card" id="tiltCard">
+            <div class="panel-glare" aria-hidden="true"></div>
+            <div class="panel-top">
+              <div>
+                <span class="micro-label" data-i18n="panel.label">LIVE ENGINEERING VIEW</span>
+                <h3 data-i18n="panel.title">Connected delivery</h3>
+              </div>
+              <span class="live-status"><i></i><span data-i18n="panel.status">Active</span></span>
+            </div>
+
+            <div class="workflow-rail">
+              <div class="wf-item">
+                <b>01</b>
+                <div>
+                  <strong data-i18n="panel.box1.title">Software</strong>
+                  <span data-i18n="panel.box1.text">Apps · APIs · Platforms</span>
+                </div>
+              </div>
+              <div class="wf-line"><i></i></div>
+              <div class="wf-item">
+                <b>02</b>
+                <div>
+                  <strong data-i18n="panel.box2.title">Data</strong>
+                  <span data-i18n="panel.box2.text">ETL · Validation · Automation</span>
+                </div>
+              </div>
+              <div class="wf-line"><i></i></div>
+              <div class="wf-item">
+                <b>03</b>
+                <div>
+                  <strong data-i18n="panel.box3.title">Insight</strong>
+                  <span data-i18n="panel.box3.text">Dashboards · KPIs · Reporting</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="signal-grid">
+              <div class="signal-card">
+                <span data-i18n="panel.metric1.label">Automation</span>
+                <strong>24/7</strong>
+                <small data-i18n="panel.metric1.text">Always-on flows</small>
+                <svg class="sparkline" viewBox="0 0 120 32" preserveAspectRatio="none" aria-hidden="true">
+                  <path class="spark-fill" d="M0 26 L12 22 L24 24 L36 16 L48 19 L60 11 L72 14 L84 8 L96 10 L108 4 L120 6 L120 32 L0 32 Z"/>
+                  <path class="spark-line" pathLength="1" d="M0 26 L12 22 L24 24 L36 16 L48 19 L60 11 L72 14 L84 8 L96 10 L108 4 L120 6"/>
+                </svg>
+              </div>
+              <div class="signal-card">
+                <span data-i18n="panel.metric2.label">Data quality</span>
+                <strong>Clean</strong>
+                <small data-i18n="panel.metric2.text">Validation-first</small>
+                <div class="quality-bar" aria-hidden="true"><i></i><b>✓</b></div>
+              </div>
+            </div>
+
+            <div class="pulse-chart" id="pulseChart" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+
+          <div class="float-tag tag-1">Python</div>
+          <div class="float-tag tag-2">Django</div>
+          <div class="float-tag tag-3">Airflow</div>
+          <div class="float-tag tag-4">Power BI</div>
+          <div class="float-tag tag-5">APIs</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="kicker" data-i18n="services.kicker">Services</span>
+          <h2 data-i18n="services.title">Engineering that covers product, process and information.</h2>
+          <p data-i18n="services.lead">We do not just build screens. We help structure the system behind them: logic, integrations, data movement and decision-ready outputs.</p>
+        </div>
+
+        <div class="cli-window reveal" id="servicesCli" aria-hidden="true">
+          <div class="cli-bar">
+            <i></i><i></i><i></i>
+            <span>usagi — services</span>
+          </div>
+          <div class="cli-body"></div>
+        </div>
+
+        <div class="service-grid" id="serviceGrid">
+          <article class="service-card featured">
+            <div class="service-top"><div class="service-icon">◫</div><code class="service-path">~/software</code></div>
+            <h3 data-i18n="services.a.title">Software Development</h3>
+            <p data-i18n="services.a.text">Custom platforms, internal systems, web apps, backend services and APIs designed for real workflows and maintainable growth.</p>
+            <ul>
+              <li data-i18n="services.a.1">Custom web applications</li>
+              <li data-i18n="services.a.2">Backend architecture & APIs</li>
+              <li data-i18n="services.a.3">Frontend implementation</li>
+                          </ul>
+          </article>
+
+          <article class="service-card">
+            <div class="service-top"><div class="service-icon">↯</div><code class="service-path">~/data</code></div>
+            <h3 data-i18n="services.b.title">Data Engineering</h3>
+            <p data-i18n="services.b.text">Data collection and orchestration across databases, files, APIs and operational sources—clean, validated and ready to be consumed.</p>
+            <ul>
+              <li data-i18n="services.b.1">ETL / ELT pipelines</li>
+              <li data-i18n="services.b.2">Process automation</li>
+              <li data-i18n="services.b.3">Database & source integrations</li>
+                          </ul>
+          </article>
+
+          <article class="service-card">
+            <div class="service-top"><div class="service-icon">▣</div><code class="service-path">~/insight</code></div>
+            <h3 data-i18n="services.c.title">Dashboards & BI</h3>
+            <p data-i18n="services.c.text">Operational and executive dashboards that transform data into visibility, KPIs and confident business decisions.</p>
+            <ul>
+              <li data-i18n="services.c.1">Power BI dashboards</li>
+              <li data-i18n="services.c.2">Executive reporting</li>
+              <li data-i18n="services.c.3">Metrics and KPI design</li>
+                          </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section process-section" id="process">
+      <div class="container">
+        <div class="lifecycle">
+          <div class="lc-copy">
+            <div class="section-heading reveal">
+              <span class="kicker" data-i18n="process.kicker">Process</span>
+              <h2 data-i18n="process.title">An agile lifecycle, built on standards.</h2>
+              <p data-i18n="process.lead">Short iterations, visible progress and quality checks at every stage.</p>
+            </div>
+
+            <div class="lc-detail reveal" id="lcDetail" aria-live="polite">
+              <div class="lc-detail-top">
+                <span class="lc-count"><b id="lcNum">01</b> / 06</span>
+                <span class="lc-bar"><i id="lcBar"></i></span>
+              </div>
+              <h3 id="lcTitle">Discover</h3>
+              <p id="lcText">Map goals, users, current systems and constraints. We turn needs into clear, testable requirements.</p>
+              <ul class="lc-tags" id="lcTags"><li>Stakeholder interviews</li><li>Requirements</li><li>Scope</li></ul>
+              <div class="lc-iso"><span>ISO</span><em id="lcIso">ISO/IEC 12207 · Stakeholder needs & requirements</em></div>
+            </div>
+          </div>
+
+          <div class="lc-wheel reveal" id="lcWheel">
+            <svg class="lc-ring" viewBox="0 0 100 100" aria-hidden="true">
+              <defs>
+                <linearGradient id="lcGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#ffcf89"/><stop offset="1" stop-color="#ff7b36"/>
+                </linearGradient>
+              </defs>
+              <circle class="lc-track" cx="50" cy="50" r="42"/>
+              <circle class="lc-progress" id="lcProgress" cx="50" cy="50" r="42" pathLength="600"/>
+              <g class="lc-runner" id="lcRunner"><circle cx="50" cy="8" r="2.2"/></g>
+            </svg>
+            <div class="lc-center">
+              <span class="lc-loop" aria-hidden="true">↻</span>
+              <small data-i18n="lc.sprint">Sprint</small>
+              <strong id="lcSprint">01</strong>
+              <em data-i18n="lc.center">Continuous loop</em>
+            </div>
+              <button class="lc-node active" type="button" data-step="0" style="left:50%;top:8%">
+                <b>01</b><span data-i18n="lc.1.title">Discover</span>
+              </button>
+              <button class="lc-node" type="button" data-step="1" style="left:86.4%;top:29%">
+                <b>02</b><span data-i18n="lc.2.title">Plan</span>
+              </button>
+              <button class="lc-node" type="button" data-step="2" style="left:86.4%;top:71%">
+                <b>03</b><span data-i18n="lc.3.title">Design</span>
+              </button>
+              <button class="lc-node" type="button" data-step="3" style="left:50%;top:92%">
+                <b>04</b><span data-i18n="lc.4.title">Build</span>
+              </button>
+              <button class="lc-node" type="button" data-step="4" style="left:13.6%;top:71%">
+                <b>05</b><span data-i18n="lc.5.title">Verify</span>
+              </button>
+              <button class="lc-node" type="button" data-step="5" style="left:13.6%;top:29%">
+                <b>06</b><span data-i18n="lc.6.title">Release</span>
+              </button>
+          </div>
+        </div>
+
+        <div class="iso-strip reveal">
+          <span class="iso-label" data-i18n="iso.label">Practices informed by</span>
+          <div class="iso-card">
+            <strong>ISO/IEC 12207</strong>
+            <span data-i18n="iso.1">Software life cycle processes</span>
+          </div>
+          <div class="iso-card">
+            <strong>ISO/IEC 25010</strong>
+            <span data-i18n="iso.2">Product quality model</span>
+          </div>
+          <div class="iso-card">
+            <strong>ISO/IEC 27001</strong>
+            <span data-i18n="iso.3">Information security practices</span>
+          </div>
+          <div class="iso-card">
+            <strong>ISO 9001</strong>
+            <span data-i18n="iso.4">Continual improvement</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about-section">
+      <div class="container about-layout">
+        <div class="about-intro reveal">
+          <span class="kicker" data-i18n="about.kicker">Why USAGI CLI</span>
+          <h2 data-i18n-html="about.title">Technology should reduce friction, <span>not create it.</span></h2>
+        </div>
+        <div class="about-copy reveal">
+          <p data-i18n="about.p1">USAGI CLI is a software and data engineering company focused on useful systems: products that solve real problems, processes that can be automated and information that can be trusted.</p>
+          <p data-i18n="about.p2">We care about both the engineering and the business process behind it. That means understanding the database, the integration, the user workflow and the reporting layer as one connected system.</p>
+          <div class="principles">
+            <span data-i18n="about.tag1">Maintainable systems</span>
+            <span data-i18n="about.tag2">Direct communication</span>
+            <span data-i18n="about.tag3">Business-driven solutions</span>
+            <span data-i18n="about.tag4">English / Spanish delivery</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="contact-panel reveal">
+          <div class="contact-copy">
+            <span class="kicker light" data-i18n="contact.kicker">Contact</span>
+            <h2 data-i18n="contact.title">Let’s talk about your project.</h2>
+            <p data-i18n="contact.text">Tell us what you need to solve. Tap the WhatsApp button or send us an email.</p>
+
+            <div class="contact-brief">
+              <small data-i18n="contact.briefLabel">To get started, tell us</small>
+              <ol>
+                <li><b>01</b><span data-i18n="contact.brief1">What you need to solve</span></li>
+                <li><b>02</b><span data-i18n="contact.brief2">The systems and data involved</span></li>
+                <li><b>03</b><span data-i18n="contact.brief3">Your timeline and priorities</span></li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="contact-cards">
+            <div class="contact-method">
+              <span class="contact-method-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg>
+              </span>
+              <div class="contact-method-text">
+                <small data-i18n="contact.emailLabel">Write to us</small>
+                <a class="contact-method-value" href="mailto:sales@usagicli.com">sales@usagicli.com</a>
+              </div>
+              <div class="contact-method-actions">
+                <button class="contact-icon-btn contact-copy-btn" type="button" data-copy="sales@usagicli.com" data-i18n-label="contact.copy" aria-label="Copy address" title="Copy address"><svg class="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M15 9V6.5A2.5 2.5 0 0 0 12.5 4h-6A2.5 2.5 0 0 0 4 6.5v6A2.5 2.5 0 0 0 6.5 15H9"/></svg><svg class="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button>
+                <a class="contact-icon-btn primary" href="mailto:sales@usagicli.com" data-i18n-label="contact.emailAction" aria-label="Send an email" title="Send an email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+              </div>
+            </div>
+
+            <div class="contact-method">
+              <span class="contact-method-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 6 6L15 14l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+              </span>
+              <div class="contact-method-text">
+                <small data-i18n="contact.phoneLabel">Call us</small>
+                <a class="contact-method-value" href="tel:+593961440098">+593 96 144 0098</a>
+              </div>
+              <div class="contact-method-actions">
+                <button class="contact-icon-btn contact-copy-btn" type="button" data-copy="+593 96 144 0098" data-i18n-label="contact.copyPhone" aria-label="Copy number" title="Copy number"><svg class="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M15 9V6.5A2.5 2.5 0 0 0 12.5 4h-6A2.5 2.5 0 0 0 4 6.5v6A2.5 2.5 0 0 0 6.5 15H9"/></svg><svg class="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></button>
+                <a class="contact-icon-btn primary" href="tel:+593961440098" data-i18n-label="contact.phoneAction" aria-label="Call now" title="Call now"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+              </div>
+            </div>
+
+
+            <div class="contact-facts">
+              <div>
+                <small data-i18n="contact.langLabel">Languages</small>
+                <strong>English · Español</strong>
+              </div>
+              <div>
+                <small data-i18n="contact.focusLabel">We help with</small>
+                <strong data-i18n="contact.focus">Software · Data · BI</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <a href="#top" class="brand footer-brand">
+        <span class="brand-badge small">
+          <img src="logo.png" alt="USAGI CLI logo" class="brand-logo" />
+        </span>
+        <span class="brand-text">
+          <strong>USAGI CLI</strong>
+          <small data-i18n="footer.tag">Software & Data Engineering</small>
+        </span>
+      </a>
+      <div class="footer-contact">
+        <a href="mailto:sales@usagicli.com">sales@usagicli.com</a>
+      </div>
+      <p>© <span id="year"></span> USAGI CLI</p>
+    </div>
+  </footer>
+
+  <a class="wa-fab whatsapp-dynamic" href="https://wa.me/593961440098" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <span class="wa-fab-icon"><svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.5 0 .2 5.3.2 11.9c0 2.1.6 4.2 1.6 6L0 24l6.3-1.7c1.8 1 3.8 1.5 5.8 1.5 6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.2-3.5-8.4Zm-8.4 18.3c-1.8 0-3.6-.5-5.1-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 22 11.9a9.9 9.9 0 0 1-9.9 9.9Zm5.4-7.4c-.3-.1-1.7-.8-2-1-.3-.1-.5-.1-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-1.8-.9-3-1.6-4.2-3.7-.3-.5.3-.5.9-1.6.1-.2.1-.4 0-.6l-.9-2.2c-.2-.5-.5-.4-.7-.4h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.3 1.4 3.5c.2.2 2.4 3.7 5.9 5.2 2.2 1 3.1 1 4.2.8.7-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.4-.2-.7-.3Z"/></svg></span>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
